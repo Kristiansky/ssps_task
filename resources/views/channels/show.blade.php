@@ -5,4 +5,12 @@
     </div>
 </div>
 <h1><img src="{{$channel->tvlogo}}" alt="{{$channel->tvtitle}}" class="shadow-sm bg-dark rounded p-2"/> {{$channel->tvtitle}}</h1>
+<div class="card card-body bg-light w-100">
+    <ul>
+        <li>{{$channel->tvmedia}}</li>
+        <li>{{$channel->tvid}}</li>
+        <li>{{$channel->tvname}}</li>
+        <li>{{$channel->tvgroup}}</li>
+    </ul>
+</div>
 @include('.includes/footer')

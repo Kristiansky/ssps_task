@@ -31,7 +31,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><small>TV Title</small></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="TV Title" value="{{$data_row['tvtitle']}}" name="tvdata[{{$key}}][tvtitle]" {{$disabled}}>
+                            <input type="text" class="form-control" placeholder="TV Title" value="@isset($data_row['tvtitle']){{$data_row['tvtitle']}}@endif" name="tvdata[{{$key}}][tvtitle]" {{$disabled}}>
                         </div>
                     </div>
                     <div class="col-2">
@@ -39,7 +39,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><small>TV Media</small></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="TV Media" value="{{$data_row['tvmedia']}}" name="tvdata[{{$key}}][tvmedia]" {{$disabled}}>
+                            <input type="text" class="form-control" placeholder="TV Media" value="@isset($data_row['tvmedia']){{$data_row['tvmedia']}}@endif" name="tvdata[{{$key}}][tvmedia]" {{$disabled}}>
                         </div>
                     </div>
                     <div class="col-2">
@@ -47,7 +47,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><small>TV Id</small></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="TV Id" value="{{$data_row['tvid']}}" name="tvdata[{{$key}}][tvid]" {{$disabled}}>
+                            <input type="text" class="form-control" placeholder="TV Id" value="@isset($data_row['tvid']){{$data_row['tvid']}}@endif" name="tvdata[{{$key}}][tvid]" {{$disabled}}>
                         </div>
                     </div>
                     <div class="col-2">
@@ -55,7 +55,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><small>TV Name</small></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="TV Name" value="{{$data_row['tvname']}}" name="tvdata[{{$key}}][tvname]" {{$disabled}}>
+                            <input type="text" class="form-control" placeholder="TV Name" value="@isset($data_row['tvname']){{$data_row['tvname']}}@endif" name="tvdata[{{$key}}][tvname]" {{$disabled}}>
                         </div>
                     </div>
                     <div class="col-2">
@@ -63,7 +63,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><small>TV Group</small></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="TV Group" value="{{$data_row['tvgroup']}}" name="tvdata[{{$key}}][tvgroup]" {{$disabled}}>
+                            <input type="text" class="form-control" placeholder="TV Group" value="@isset($data_row['tvgroup']){{$data_row['tvgroup']}}@endif" name="tvdata[{{$key}}][tvgroup]" {{$disabled}}>
                         </div>
                     </div>
                         <input type="hidden" value="{{\Carbon\Carbon::now()}}" name="tvdata[{{$key}}][updated_at]" {{$disabled}}/>

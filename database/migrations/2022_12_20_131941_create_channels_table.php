@@ -15,12 +15,12 @@ class CreateChannelsTable extends Migration
     {
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
-            $table->string('tvtitle');
-            $table->string('tvmedia');
-            $table->string('tvid');
-            $table->string('tvname');
-            $table->string('tvlogo');
-            $table->string('tvgroup');
+            $table->string('tvtitle')->nullable();
+            $table->string('tvmedia')->nullable();
+            $table->string('tvid')->nullable();
+            $table->string('tvname')->nullable();
+            $table->string('tvlogo')->nullable();
+            $table->string('tvgroup')->nullable();
             $table->timestamps();
         });
     }

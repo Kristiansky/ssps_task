@@ -16,7 +16,7 @@ class ChannelController extends Controller
      */
     public function index()
     {
-        $channels = Channel::all();
+        $channels = Channel::all()->sortByDesc("id");
         return view('/channels/index', compact('channels'));
     }
 
@@ -96,7 +96,7 @@ class ChannelController extends Controller
         if($request->has('tvdata')) {
             $data = $request->get('tvdata');
             Channel::insert($data);
-            $request->session()->flash('success', 'Task was successful!');
+            $request->session()->flash('success', 'Storing was successful!');
         }else{
             $request->session()->flash('error', 'No data imported.');
         }
@@ -128,13 +128,23 @@ class ChannelController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request
-     * @param  \App\Models\Channel  $channel
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Channel $channel
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Channel $channel)
     {
-        //
+        $request->validate([
+            'tvtitle' => 'max:255',
+            'tvmedia' => 'max:255',
+            'tvid' => 'max:255',
+            'tvname' => 'max:255',
+            'tvlogo' => 'max:255',
+            'tvgroup' => 'max:255',
+        ]);
+        $channel->updateOrFail($request->all());
+        session()->flash('success', 'Update was successful!');
+        return redirect('/');
     }
 
     /**
@@ -145,6 +155,8 @@ class ChannelController extends Controller
      */
     public function destroy(Channel $channel)
     {
-        //
+        $channel->deleteOrFail();
+        session()->flash('success', 'Delete was successful!');
+        return redirect('/');
     }
 }

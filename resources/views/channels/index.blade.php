@@ -41,12 +41,12 @@
                         <td>{{$channel->tvname}}</td>
                         <td>{{$channel->tvgroup}}</td>
                         <td>
-                            <form action="{{ route('channels.destroy',$channel->id) }}" method="POST">
-                                <a class="btn btn-info" href="{{ route('channels.show',$channel->id) }}"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-primary" href="{{ route('channels.edit',$channel->id) }}"><i class="fa fa-pencil"></i></a>
+                            <form action="{{ route('channels.destroy',$channel->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                <a class="btn btn-info btn-sm mb-2 mr-2" href="{{ route('channels.show',$channel->id) }}"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-primary btn-sm mb-2" href="{{ route('channels.edit',$channel->id) }}"><i class="fa fa-pencil"></i></a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
