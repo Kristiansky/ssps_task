@@ -1,7 +1,8 @@
 @include('.includes/header')
     <div class="position-absolute w-100">
         <div class="d-flex justify-content-end mt-3">
-            <a href="{{url('/import')}}" class="btn btn-success btn-sm mb-2">Import</a>
+            <a href="{{url('/import')}}" class="btn btn-success btn-sm mb-2 mr-2"><i class="fa-solid fa-file-import"></i> Import</a>
+            <a href="{{url('/export')}}" class="btn btn-danger btn-sm mb-2"><i class="fa-solid fa-file-export"></i> Export</a>
         </div>
     </div>
     <h1>All channels</h1>

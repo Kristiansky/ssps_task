@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Channel;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use SoapBox\Formatter\Formatter;
 
 class ChannelController extends Controller
 {
@@ -158,5 +160,17 @@ class ChannelController extends Controller
         $channel->deleteOrFail();
         session()->flash('success', 'Delete was successful!');
         return redirect('/');
+    }
+
+    public function export()
+    {
+        $all_channels_array = Channel::all()->toArray();
+        $formatter = Formatter::make($all_channels_array, Formatter::XML);
+        if (! Storage::put('export.xml', $formatter->toXml())) {
+            session()->flash('error', "Export couldn't go.");
+            return redirect('/');
+        }else{
+            return Storage::download('export.xml');
+        }
     }
 }

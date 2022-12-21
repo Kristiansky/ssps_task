@@ -16,6 +16,7 @@
 
 Route::get('/', [ChannelController::class, 'index']);
 Route::get('/import', [ChannelController::class, 'import']);
+Route::get('/export', [ChannelController::class, 'export']);
 Route::post('/store', [ChannelController::class, 'store']);
 Route::view('/batch', '/channels/batch')->name('batch');
 Route::post('/store-batch', [ChannelController::class, 'storeBatch']);
